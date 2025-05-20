@@ -1,0 +1,172 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url(./assets/fonts/poppins/poppins-semibolditalic-webfont.woff2) format('woff2'),
+    url(./assets/fonts/poppins/poppins-semibolditalic-webfont.woff) format('woff');
+    font-weight:600;
+    font-style: italic;
+}
+@font-face {
+    font-family:'Raleway';
+    src: url(./assets/fonts/raleway/Raleway-VariableFont.woff2) format('woff2');
+    font-style: normal;
+    font-weight: 100 900;
+}
+
+:root{
+--accent-color: #2ecc71;
+--base-color:#f4fef8;
+--text-color:#1e392a;
+--input-color:#e2f5ea;
+}
+*,*::before, *::after{
+    box-sizing: border-box;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-family:'Raleway', 'system-ui', 'sans-serif';
+    color: var(--text-color);
+    text-align: center;
+}
+body{
+    min-height: 100vh;
+    background-image: url(./assets/images/background.jpg);
+    background-size: cover;
+    background-position: right;
+    overflow: hidden;
+    line-height: 1.5;
+}
+.wrapper{
+    background-color: white;
+    height: 100vh;
+    width: max(40%, 600px);
+    padding:.625rem;
+    border-radius:0 20px 20px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+h1{
+    font-size: 3rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+form{
+    width: min(400px, 100%);
+    margin-top: 1.5rem;
+    margin-bottom: 3.125rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+form > div{
+width: 100%;
+display: flex;
+justify-content: center;
+}
+
+form label svg, form label{
+    flex-shrink: 0;
+    height: 50px;
+    width: 50px;
+    background-color: var(--accent-color);
+    fill:var(--base-color);
+    color: var(--base-color);
+    border-radius: 10px 0 0 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: 500; 
+    padding: .5rem;
+}
+form input{
+    flex-grow: 1;
+    min-width: 0;
+    height: 50px;
+    padding: 1em;
+    font: inherit;
+    border-radius:0 10px 10px 0;
+    border: 2px solid var(--input-color);
+    border-left: none;
+    background-color: var(--input-color);
+    transition: 150ms ease;
+}
+
+form input:hover{
+    border-color: var(--accent-color);
+}
+form input:focus{
+    outline: none;
+    border-color: var(--text-color);
+}
+div:has(input:focus) > label, 
+div:has(input:focus) > label svg {
+    background-color: var(--text-color);
+}
+
+form input::placeholder{
+    color: var(--text-color);
+    opacity: 1;
+}
+form button{
+    margin-top:.625rem;
+    border: none;
+    border-radius: 1000px;
+    padding: 0.85em 4em;
+    background-color: var(--accent-color);
+    font: inherit;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 150ms ease;
+}
+form button:hover{
+    background-color: var(--text-color);
+    color:var(--accent-color)
+}
+form button:focus{
+    outline: none;
+    background-color: var(--text-color);
+    color: var(--accent-color);
+}
+a{
+    text-decoration: none;
+    color: var(--accent-color);
+}
+a:hover{
+    text-decoration: underline;
+}
+
+@media(max-width: 1100px){
+    .wrapper{
+        width:min(600px, 100%);
+        border-radius: 0;
+    }
+}
+
+form div.incorrect label svg{
+background-color: #f06272;
+}
+form div.incorrect label{
+    background-color: #f06272;
+    }
+form div.incorrect input{
+   border-color: #f06272; 
+} 
+
+#error-message ul {
+    padding-left: 1rem; 
+    margin: 0.5rem 0;
+    color: #f06272; 
+    font-weight: 500;
+  }
+  
+  #error-message li {
+    margin-bottom: 0.3rem;
+    list-style-type:none;
+  }
